@@ -1,0 +1,59 @@
+# تشغيل البرنامج مع Firebase Realtime Database
+
+## 1) تفعيل تسجيل الدخول
+
+من Firebase Console:
+
+1. افتح **Authentication**.
+2. اضغط **Get started**.
+3. افتح **Sign-in method**.
+4. فعّل **Email/Password** ثم احفظ.
+
+تسجيل الدخول الافتراضي:
+
+- اسم المستخدم: `admin`
+- كلمة المرور: `123456`
+
+إذا لم يكن حساب المدير موجودًا، ينشئه البرنامج تلقائيًا عند أول دخول. غيّر كلمة المرور بعد ذلك من **الإعدادات → الأمان**.
+
+## 2) إنشاء Realtime Database
+
+1. افتح **Build → Realtime Database**.
+2. اضغط **Create Database**.
+3. اختر موقع قاعدة البيانات.
+4. أكمل الإنشاء.
+
+> البرنامج يستخدم Realtime Database الآن، ولا يستخدم Cloud Firestore.
+
+## 3) نشر قواعد الأمان
+
+1. افتح **Realtime Database → Rules**.
+2. استبدل القواعد بمحتوى ملف `database.rules.json`.
+3. اضغط **Publish**.
+
+القواعد تسمح لكل حساب بقراءة وتعديل البيانات الموجودة تحت UID الخاص به فقط.
+
+## 4) شكل البيانات
+
+يحفظ البرنامج البيانات في المسار:
+
+```text
+users/{uid}/items
+users/{uid}/settings
+```
+
+## 5) رفع الموقع
+
+يمكن رفع `index.html` إلى GitHub Pages أو Firebase Hosting. عند استخدام Firebase Hosting:
+
+```bash
+firebase deploy --only hosting
+```
+
+## ملاحظات
+
+- لا يستخدم البرنامج localStorage لحفظ بيانات الأصناف أو الإعدادات.
+- Realtime Database يختار تلقائيًا بين WebSocket وLong Polling، لذلك يعمل بصورة أفضل مع شبكات المحمول والشبكات المقيدة.
+- يعيد الاتصال تلقائيًا بعد عودة الإنترنت، ويحاول تحميل الإعدادات ثلاث مرات قبل إظهار رسالة الخطأ.
+- بيانات Firestore القديمة لا تنتقل تلقائيًا إلى Realtime Database؛ قاعدة Realtime Database ستبدأ ببيانات مستقلة.
+- اختيار خط Windows ينتقل كإعداد، لكن يجب أن يكون الخط مثبتًا على كل جهاز ليظهر بالشكل نفسه.
