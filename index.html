@@ -947,7 +947,7 @@
             win.document.write(`<html dir="rtl"><head><style>@page { size: 5cm 2.5cm; margin: 0; } html, body { width: 5cm; margin: 0; padding: 0; } * { box-sizing: border-box; } .label { --code-box-height: 1.1cm; width: 5cm; height: 2.5cm; padding: ${config.margins.top}cm ${config.margins.right}cm ${config.margins.bottom}cm ${config.margins.left}cm; overflow: hidden; page-break-inside: avoid; break-inside: avoid; display: flex; flex-direction: column; } .label:not(:last-child) { page-break-after: always; break-after: page; } .r1 { flex: 1 1 50%; min-height: 0; display: flex; justify-content: space-between; align-items: center; } .r2 { flex: 1 1 50%; min-height: 0; display: flex; justify-content: space-between; align-items: center; margin-top: 0; } .cb { width: 3.54cm; height: var(--code-box-height); border-radius: 4px; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; font-family: "${config.codeF.font}", Cairo, Arial, sans-serif; font-size: ${config.codeF.size}px; font-weight: ${config.codeF.bold?800:400}; text-decoration: ${config.codeF.underline?'underline':'none'}; } .cb span {
     display: inline-block;
     line-height: 1;
-    transform: scaleY(1.1);
+    transform: scaleY(1.25);
     transform-origin: center;
 } .sb { width: 1.4cm; height: 1.2cm; transform: translateY(calc(((var(--code-box-height) - 0.9cm) / 2) - 0.075cm)); border: 2px solid #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: "${config.sizeF.font}", Cairo, Arial, sans-serif; font-size: ${config.sizeF.size}px; font-weight: ${config.sizeF.bold?800:400}; text-decoration: ${config.sizeF.underline?'underline':'none'}; } .sb span {
     display: inline-block;
