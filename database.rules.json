@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "appUsers": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "userData": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "shared": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "presence": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "control": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    ".read": false,
+    ".write": false
+  }
+}
